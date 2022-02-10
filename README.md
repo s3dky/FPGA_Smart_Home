@@ -2,7 +2,7 @@
 ### Digital System Design **- Mechatronics course -**  project  
 The aim of the project is to design two system models controlled by
 the Spartan3E FPGA board for smart home automation: fire detection
-and door passcode detection models. The FPGA board should be
+and door passcode detection models. The FPGA board is
 programmed using VHDL to work as the core control of the two models
 based on external inputs.
 ## Project Components and sensors

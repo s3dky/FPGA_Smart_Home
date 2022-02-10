@@ -40,3 +40,5 @@ through this button a high logic one and throw the VHDL
 code we detect this signal and take it as a password number
 once the password is correct and the servos get it’s signals
 from the FPGA and a button will close the door.
+## FPGA Connections
+To replicate this project use the [pin out map](https://github.com/s3dky/FPGA_Smart_Home/blob/main/pin_out_map.md) as a guide 

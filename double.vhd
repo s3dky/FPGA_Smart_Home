@@ -13,7 +13,7 @@ USE ieee.std_logic_unsigned.all;
 
 entity double is
  GENERIC(
-    counter_size  :  INTEGER := 19); --counter(19 bits tdy 10.5ms m3 el 50MHz clock lmma t5ls kol el counts w tdy L el carry fel 25r) 
+    counter_size  :  INTEGER := 19); --counter(19 bits gives 10.5ms with the 50MHz clock when the counter ends and gives out the carry) 
     Port (   enable: in  STD_LOGIC;
 	          close : in STD_Logic;
                clk : in  STD_LOGIC;
@@ -33,10 +33,10 @@ signal bigcounter2 : integer :=0;
 signal flag_pushed2 : integer :=0;
 
 --debouncer 
-SIGNAL flipflops   : STD_LOGIC_VECTOR(1 DOWNTO 0); --input flip flops storing to check eza kan dh lssa debounce wlla estkr 5las." 2 flipflops 2w wa7d 2 bits ma el flipflop bystore 1 bit"
+SIGNAL flipflops   : STD_LOGIC_VECTOR(1 DOWNTO 0); --input flipflops storing to check if the button is still in bouncing state." 2 flipflops or one with 2 bits flipflop stores 1 bit"
   SIGNAL counter_set : STD_LOGIC;                   
   SIGNAL counter_out : STD_LOGIC_VECTOR(counter_size DOWNTO 0) := (OTHERS => '0'); --counter output initialy is set to 0
-  SIGNAL r : STD_LOGIC; -- hyya hyya result bs 3shan akml beha
+  SIGNAL r : STD_LOGIC; -- same as the resalt 
   
 begin
 
@@ -52,7 +52,7 @@ process(clk,enable,close)
       flipflops(1) <= flipflops(0);
       If(counter_set = '1') THEN           --reset counter because input is changing
         counter_out <= (OTHERS => '0');
-      ELSIF(counter_out(counter_size) = '0') THEN --stable input time is not yet met check 3la most seg lw 1 yb2a kdh el clock cycle el gyya htb2a el carry b 1 w ysh8l el result 
+      ELSIF(counter_out(counter_size) = '0') THEN --stable input time is not yet met check the most seg if 1 then the next clock cycle will carry 1 giving a result
         counter_out <= counter_out + 1;
       ELSE                                        
         r <= flipflops(1);

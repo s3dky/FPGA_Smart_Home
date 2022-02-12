@@ -40,5 +40,10 @@ through this button a high logic one and throw the VHDL
 code we detect this signal and take it as a password number
 once the password is correct and the servos get it’s signals
 from the FPGA and a button will close the door.
+## Code
+The [Smart_home](https://github.com/s3dky/FPGA_Smart_Home/blob/main/Smart_home.vhd) is the entry file and contains the ADC (analog to digital) code for the temprature sessor, water valve and initiate the keypads and motor functions.\
+ The [key](https://github.com/s3dky/FPGA_Smart_Home/blob/main/key.vhd) file checks the user password, assign new password.\
+ The [motor](https://github.com/s3dky/FPGA_Smart_Home/blob/main/motor.vhd) file opens and closes the door using a servo motor.
+
 ## FPGA Connections
 To replicate this project use the [pin out map](https://github.com/s3dky/FPGA_Smart_Home/blob/main/pin_out_map.md) as a guide 
